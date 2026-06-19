@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr Suleyman Duman · Personal Website</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- GLOBAL VARIABLES ----- */
+    :root {
+      --primary: #1a5276;
+      --secondary: #2980b9;
+      --accent: #f1c40f;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --success: #27ae60;
+      --danger: #e74c3c;
+      --warning: #f39c12;
+      --bg-body: #1a1a2e;
+      --bg-card: #2c4a6a;
+      --bg-code: #1a2a3a;
+      --text-light: #ecf0f1;
+      --text-muted: #d5e4f0;
+      --border-color: #3a6a8a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: var(--bg-body);
+      color: var(--text-light);
+      line-height: 1.6;
+      padding: 20px;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ----- HEADER (hero) ----- */
+    .header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1a5276, #2980b9);
+      border-radius: 15px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '\f0c2';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.08;
+      right: -30px;
+      top: -40px;
+      transform: rotate(15deg);
+      color: white;
+    }
+    .header h1 {
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      margin-bottom: 6px;
+    }
+    .header .subtitle {
+      font-size: 20px;
+      color: #d5e8f0;
+      margin-bottom: 16px;
+    }
+    .header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      padding: 8px 20px;
+      border-radius: 40px;
+      margin: 5px;
+      font-size: 14px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .header .badge i {
+      margin-right: 6px;
+    }
+
+    /* ----- STICKY NAV ----- */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      background: var(--dark);
+      padding: 12px 18px;
+      border-radius: 60px;
+      margin-bottom: 30px;
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      backdrop-filter: blur(6px);
+      background: rgba(44, 62, 80, 0.92);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 40px;
+      transition: all 0.2s;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav a:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      color: white;
+      box-shadow: 0 4px 12px rgba(41,128,185,0.3);
+    }
+    .nav a i {
+      margin-right: 6px;
+    }
+
+    /* ----- SECTIONS (cards) ----- */
+    .section {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 30px;
+      border-left: 6px solid var(--secondary);
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .section:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    }
+    .section h2 {
+      color: var(--accent);
+      font-size: 28px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section h2 i {
+      font-size: 28px;
+      width: 40px;
+      color: var(--secondary);
+    }
+    .section h3 {
+      color: #8bb9e0;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 6px;
+    }
+    .section p, .section li {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+    .section a {
+      color: #85c1e9;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(133, 193, 233, 0.3);
+    }
+    .section a:hover {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    /* ----- CARD GRID ----- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 18px 0 8px;
+    }
+    .card {
+      background: #1f3347;
+      padding: 20px 20px 22px;
+      border-radius: 16px;
+      border-left: 4px solid var(--secondary);
+      transition: all 0.25s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+      background: #253b52;
+    }
+    .card h4 {
+      color: #f0c27f;
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+    .card h4 i {
+      margin-right: 10px;
+      color: var(--secondary);
+    }
+    .card .meta {
+      font-size: 14px;
+      color: #95b8d4;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 15px;
+      color: #cddbe8;
+    }
+    .card .tag {
+      display: inline-block;
+      background: rgba(41, 128, 185, 0.25);
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-size: 12px;
+      color: #aacfec;
+      margin: 6px 4px 0 0;
+    }
+    .card .tag a {
+      color: #aacfec;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    .card .tag a:hover {
+      color: white;
+    }
+
+    /* ----- TIMELINE ----- */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      bottom: 6px;
+      width: 3px;
+      background: var(--secondary);
+      border-radius: 6px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 22px;
+      padding-left: 18px;
+    }
+    .timeline-item::before {
+      content: '\f111';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: -22px;
+      top: 2px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+    .timeline-item h4 {
+      color: #f1c40f;
+      font-size: 18px;
+    }
+    .timeline-item .date {
+      font-size: 14px;
+      color: #8ab3d6;
+      margin-bottom: 4px;
+    }
+    .timeline-item p {
+      color: #cbdae7;
+    }
+
+    /* ----- CODE BLOCKS ----- */
+    .code-block {
+      background: var(--bg-code);
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 14px;
+      color: #b4e6b0;
+      border: 1px solid var(--border-color);
+      line-height: 1.7;
+    }
+    .code-block i {
+      color: #f1c40f;
+      margin-right: 8px;
+    }
+    .code-block .comment {
+      color: #7f8c8d;
+    }
+
+    /* ----- TOGGLE BUTTON ----- */
+    .toggle-btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin: 12px 0 8px;
+      box-shadow: 0 2px 8px rgba(41,128,185,0.2);
+    }
+    .toggle-btn:hover {
+      background: #1f6f9e;
+      transform: scale(1.02);
+    }
+    .toggle-btn.active {
+      background: var(--danger);
+    }
+    .toggle-content {
+      display: none;
+      margin-top: 16px;
+    }
+
+    /* ----- SOCIAL LINKS ----- */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .social-links a {
+      background: rgba(255,255,255,0.06);
+      padding: 8px 18px;
+      border-radius: 60px;
+      color: #d5e8f0;
+      font-size: 15px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .social-links a:hover {
+      background: var(--secondary);
+      color: white;
+      border-color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      text-align: center;
+      padding: 30px 0 16px;
+      color: #6c859e;
+      border-top: 1px solid var(--border-color);
+      margin-top: 30px;
+    }
+    footer .tech-tag {
+      display: inline-block;
+      background: #2c3e50;
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin: 4px;
+      color: #b0c9dd;
+    }
+
+    /* ============================================
+       MOBILE RESPONSIVE STYLES
+       ============================================ */
+
+    /* Tablets and small laptops */
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+    }
+
+    /* Mobile phones */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .header h1 {
+        font-size: 32px;
+      }
+      .header .subtitle {
+        font-size: 17px;
+      }
+      .header .badge {
+        font-size: 12px;
+        padding: 6px 14px;
+        margin: 4px;
+      }
+      .header::before {
+        font-size: 120px;
+        right: -20px;
+        top: -20px;
+      }
+      
+      .section {
+        padding: 20px 18px;
+        border-left-width: 4px;
+      }
+      .section h2 {
+        font-size: 24px;
+      }
+      .section h2 i {
+        font-size: 24px;
+        width: 32px;
+      }
+      .section p, .section li {
+        font-size: 15px;
+      }
+      
+      .nav {
+        border-radius: 30px;
+        gap: 5px;
+        padding: 10px 12px;
+        top: 8px;
+        flex-wrap: wrap;
+      }
+      .nav a {
+        font-size: 12px;
+        padding: 6px 12px;
+        letter-spacing: 0;
+      }
+      .nav a i {
+        margin-right: 4px;
+      }
+      
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .card {
+        padding: 16px;
+      }
+      .card h4 {
+        font-size: 17px;
+      }
+      .card p {
+        font-size: 14px;
+      }
+      
+      .timeline {
+        padding-left: 20px;
+      }
+      .timeline-item {
+        padding-left: 14px;
+        margin-bottom: 18px;
+      }
+      .timeline-item::before {
+        left: -18px;
+        font-size: 12px;
+      }
+      .timeline-item h4 {
+        font-size: 16px;
+      }
+      .timeline-item .date {
+        font-size: 13px;
+      }
+      .timeline-item p {
+        font-size: 14px;
+      }
+      
+      .social-links {
+        gap: 10px;
+        justify-content: center;
+      }
+      .social-links a {
+        font-size: 13px;
+        padding: 6px 14px;
+      }
+      
+      footer .tech-tag {
+        font-size: 10px;
+        padding: 3px 10px;
+        margin: 3px;
+      }
+      
+      .toggle-btn {
+        font-size: 13px;
+        padding: 8px 18px;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .header {
+        padding: 25px 15px;
+        border-radius: 12px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
+      .header .subtitle {
+        font-size: 14px;
+      }
+      .header .badge {
+        font-size: 10px;
+        padding: 4px 10px;
+        margin: 3px;
+      }
+      .header::before {
+        font-size: 80px;
+        right: -15px;
+        top: -10px;
+      }
+      
+      .section {
+        padding: 16px 14px;
+        border-radius: 14px;
+        border-left-width: 3px;
+      }
+      .section h2 {
+        font-size: 20px;
+        gap: 8px;
+      }
+      .section h2 i {
+        font-size: 20px;
+        width: 28px;
+      }
+      .section p, .section li {
+        font-size: 14px;
+      }
+      
+      .nav {
+        border-radius: 20px;
+        gap: 4px;
+        padding: 8px 6px;
+        top: 4px;
+        margin-bottom: 20px;
+      }
+      .nav a {
+        font-size: 10px;
+        padding: 4px 8px;
+      }
+      .nav a i {
+        margin-right: 2px;
+        font-size: 10px;
+      }
+      
+      .card {
+        padding: 14px;
+      }
+      .card h4 {
+        font-size: 15px;
+      }
+      .card .meta {
+        font-size: 12px;
+      }
+      .card p {
+        font-size: 13px;
+      }
+      .card .tag {
+        font-size: 10px;
+        padding: 2px 10px;
+      }
+      
+      .timeline {
+        padding-left: 16px;
+      }
+      .timeline::before {
+        left: 6px;
+      }
+      .timeline-item {
+        padding-left: 12px;
+        margin-bottom: 14px;
+      }
+      .timeline-item::before {
+        left: -14px;
+        font-size: 10px;
+      }
+      .timeline-item h4 {
+        font-size: 14px;
+      }
+      .timeline-item .date {
+        font-size: 12px;
+      }
+      .timeline-item p {
+        font-size: 13px;
+      }
+      
+      .social-links {
+        gap: 8px;
+      }
+      .social-links a {
+        font-size: 11px;
+        padding: 5px 10px;
+        gap: 5px;
+      }
+      
+      footer {
+        padding: 20px 0 12px;
+      }
+      footer p {
+        font-size: 12px;
+      }
+      footer .tech-tag {
+        font-size: 9px;
+        padding: 2px 8px;
+        margin: 2px;
+      }
+      
+      .toggle-btn {
+        font-size: 11px;
+        padding: 6px 14px;
+      }
+      .code-block {
+        font-size: 12px;
+        padding: 12px 14px;
+      }
+      
+      .badge {
+        font-size: 10px !important;
+        padding: 4px 10px !important;
+        margin: 3px !important;
+      }
+    }
+
+    /* ----- PRINT STYLES (PDF friendly) ----- */
+    @media print {
+      body { background: white; padding: 8px; color: #1a1a2e; }
+      .section { background: #f4f6f9; border-left-color: #2980b9; box-shadow: none; }
+      .header { background: #1a5276 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .nav { display: none; }
+      .card { background: #eaf0f5; border-left-color: #2980b9; }
+      .card h4 { color: #1a3d5c; }
+      .timeline-item h4 { color: #1a5276; }
+      .code-block { background: #edf2f7; color: #1a2a3a; border-color: #b0c4d8; }
+      .section h2 { color: #1a5276; }
+      .social-links a { border: 1px solid #ccc; color: #1a3d5c; background: #f0f4f8; }
+      .header .badge { background: rgba(255,255,255,0.3); }
+      .toggle-content { display: block !important; }
+      .toggle-btn { display: none; }
+      .section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1><i class="fas fa-compass" style="margin-right: 12px;"></i> Dr Suleyman Duman</h1>
+    <p class="subtitle">CFD Specialist · Naval Architect & Marine Engineer</p>
+    <div>
+      <span class="badge"><i class="fas fa-university"></i> Ph.D. · ITU</span>
+      <span class="badge"><i class="fas fa-water"></i> CFD</span>
+      <span class="badge"><i class="fas fa-chess-queen"></i> Parametric CAD</span>
+      <span class="badge"><i class="fas fa-code"></i> Python · C++</span>
+    </div>
+  </header>
+
+  <!-- STICKY NAV -->
+  <nav class="nav" id="topNav">
+    <a href="#about"><i class="fas fa-user"></i> About</a>
+    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#positions"><i class="fas fa-briefcase"></i> Positions</a>
+    <a href="#memberships"><i class="fas fa-users"></i> Memberships</a>
+    <a href="#projects"><i class="fas fa-flask"></i> Projects</a>
+    <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
+  </nav>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <h2><i class="fas fa-address-card"></i> About Me</h2>
+    <p style="font-size: 17px;">
+      Dynamic researcher with a strong academic background 
+      in Naval Architecture and Marine Engineering <strong>(PhD, MSc, BSc)</strong> 
+      and extensive international experience in <strong>high-fidelity CFD and multiphysics modelling</strong>. 
+      I have contributed to major <strong>EU Horizon2020 and Innovate UK programmes</strong>, 
+      applying advanced CFD simulation and digital-twin methods to complex fluid-mechanics problems. 
+      I was awarded the prestigious <strong>Global Talent Visa</strong> 
+      by the <strong>Royal Academy of Engineering</strong> in recognition of my contributions 
+      to the field of fluid mechanics.
+    </p>
+    <br>
+    <p style="font-size: 17px;">
+      I currently serve as <strong>Chief Technology Officer</strong> at Econavis Solutions, 
+      an R&D company developing sustainable propulsion and zero-emission marine technologies. 
+      Alongside this role, my academic background includes appointments as 
+      Research Associate at the University of Strathclyde, 
+      Lecturer and Research Assistant at Yildiz Technical University. 
+      Through projects such as the EU Horizon 2020 TrAM initiative and 
+      the Innovate UK Eco Boss Cap programme, I have contributed to the design of 
+      digital-twin frameworks and advanced propulsion concepts supporting the transition to net-zero transport.
+    </p>
+    <div style="margin-top: 18px;">
+      <span class="badge" style="background: #1f4b6e;"><i class="fas fa-map-pin"></i> Oxford, UK</span>
+      <span class="badge" style="background: #1f4b6e;"><i class="fas fa-chart-line"></i> 10+ years R&D</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Ph.D. in Naval Architecture and Marine Engineering</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2016 – 2022 · Istanbul Technical University</div>
+        <p>Thesis: <em>"Numerical investigation of maneuvering performance of monohull and multihull marine vessels"</em></p>
+      </div>
+      <div class="timeline-item">
+        <h4>M.Sc. in Naval Architecture and Marine Engineering</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2014 – 2016 · Istanbul Technical University</div>
+        <p>Thesis: <em>"Investigation of the turning performance of a surface combatant with URANS"</em></p>
+      </div>
+      <div class="timeline-item">
+        <h4>B.Sc. in Naval Architecture and Marine Engineering</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2009 – 2014 · Yildiz Technical University</div>
+        <p>First-class honours; dissertation on <em>"45m Displacement Type Motor Yacht Design"</em>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONS -->
+  <section class="section" id="positions">
+    <h2><i class="fas fa-briefcase"></i> Academic & Professional Positions</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Chief Technology Officer</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> August 2025 – Present · Econavis Solutions, Oxford, UK</div>
+        <p>Leading R&D phase of the Eco Boss Cap project.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Senior Maritime CFD Engineer</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> February 2025 – July 2025 · Econavis Solutions, Oxford, UK</div>
+        <p>Leading the CFD simulations for the Eco Boss Cap project.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>CFD Specialist Naval Architect</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> December 2022 – 2024 · Blue Ocean Seismic Services, Farnborough, UK</div>
+        <p>Leading hydrodynamic performance evaluation and form optimisation of an AUV submersible.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Research Associate</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> March 2022 – November 2022 · University of Strathclyde, Glasgow, UK</div>
+        <p>Evaluating hydrodynamic performance of a fully electric driven catamaran ferry.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Visiting Lecturer</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2021 – 2022 · Yildiz Technical University, Istanbul, Turkiye</div>
+        <p>Contributing to departmental teaching and research activities.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Visiting Research Assistant</h4>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2015 – 2021 · Yildiz Technical University, Istanbul, Turkiye</div>
+        <p>Contributing to departmental teaching and research activities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIPS -->
+  <section class="section" id="memberships">
+    <h2><i class="fas fa-users"></i> Memberships & Affiliations</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4><i class="fas fa-ship"></i> Royal Institution of Naval Architects</h4>
+        <p class="meta">Member (2016–present)</p>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-anchor"></i> Turkish Chamber of Naval Architects</h4>
+        <p class="meta">Member (2014–present)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <h2><i class="fas fa-flask"></i> Featured Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4><i class="fas fa-ship"></i> Eco Boss Cap</h4>
+        <p class="meta">CFD · Parametric CAD Optimisation</p>
+        <p>Innovate UK funded project for marine propulsion systems design.</p>
+        <div><span class="tag"><i class="fas fa-globe"></i> <a href="https://econavis.co.uk/" target="_blank">econavis.co.uk</a></span></div>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-robot"></i> TrAM Project</h4>
+        <p class="meta">Horizon 2020 · Marine Hydrodynamics</p>
+        <p>Transport Advance and Modular Ship Design for zero-emission vessels.</p>
+        <div><span class="tag"><i class="fas fa-globe"></i> <a href="https://tramproject.eu/" target="_blank">tramproject.eu</a></span></div>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-chart-simple"></i> Manoeuvring Simulator</h4>
+        <p class="meta">6-DoF · Mathematical Modelling</p>
+        <p>Development of a 6-DoF manoeuvring mathematical model for surface ships.</p>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-scroll"></i> Multihull Manoeuvring</h4>
+        <p class="meta">Catamaran · Trimaran</p>
+        <p>Numerical investigation of manoeuvring characteristics of multihull ships.</p>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-scroll"></i> Corvette Analysis</h4>
+        <p class="meta">Hydrodynamic · Structural · Shock</p>
+        <p>Noise, hydrodynamic, structural and shock analysis for 92-meter corvette.</p>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleSection('project-details')"><i class="fas fa-book"></i> Show more project notes</button>
+    <div id="project-details" class="toggle-content">
+      <div class="code-block">
+        <i class="fas fa-terminal"></i> <span class="comment"># Please get in touch for further details about the projects.</span><br>
+        Email: duman.suleyman(at)outlook.com
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2><i class="fas fa-paper-plane"></i> Connect</h2>
+    <p style="margin-bottom: 14px;">I'm always open to collaboration, research discussions, or just a chat about fluid dynamics.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/s-duman/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=Nuz8pmMAAAAJ&hl=en&authuser=2" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-scholar"></i> Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Suleyman-Duman" target="_blank" rel="noopener noreferrer"><i class="fab fa-researchgate"></i> ResearchGate</a>
+      <a href="https://orcid.org/0000-0001-6502-5960" target="_blank" rel="noopener noreferrer"><i class="fab fa-orcid"></i> ORCID</a>
+    </div>
+    <div style="margin-top: 22px; background: #1a2c3f; padding: 14px 20px; border-radius: 16px; border-left: 4px solid #f1c40f;">
+      <p style="color: #d5e4f0; font-size: 15px;">
+        <i class="fas fa-envelope" style="color: #f1c40f; margin-right: 10px;"></i> 
+        <strong>Email:</strong> duman.suleyman<em>(at)</em>outlook.com
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><i class="fas fa-compass"></i> Dr Suleyman Duman · 2026</p>
+    <p style="font-size: 13px; color: #6c859e;">
+      <i class="fas fa-anchor" style="color: #d5e4f0;"></i> 
+      Naval Architect & Marine Engineer <em>PhD · MSc · BSc</em>
+    </p>
+    <div>
+      <span class="tech-tag">CFD</span>
+      <span class="tech-tag">Marine Hydrodynamics</span>
+      <span class="tech-tag">Parametric CAD</span>
+      <span class="tech-tag">R&D</span>
+      <span class="tech-tag">AUV Design</span>
+    </div>
+    <p style="margin-top: 12px; font-size: 13px;">
+      <a href="#topNav" style="color: #5f8db5; text-decoration: none;">
+        <i class="fas fa-arrow-up"></i> Back to top
+      </a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  // Toggle function
+  function toggleSection(id) {
+    const el = document.getElementById(id);
+    const btn = event.target.closest('.toggle-btn');
+    if (!el || !btn) return;
+    if (el.style.display === 'block') {
+      el.style.display = 'none';
+      btn.innerHTML = btn.innerHTML.replace('Hide', 'Show');
+      btn.classList.remove('active');
+    } else {
+      el.style.display = 'block';
+      btn.innerHTML = btn.innerHTML.replace('Show', 'Hide');
+      btn.classList.add('active');
+    }
+  }
+
+  // Smooth scroll for nav
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Auto-expand first toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const firstToggle = document.querySelector('.toggle-content');
+    if (firstToggle) {
+      firstToggle.style.display = 'block';
+      const btn = document.querySelector('.toggle-btn');
+      if (btn) {
+        btn.innerHTML = btn.innerHTML.replace('Show', 'Hide');
+        btn.classList.add('active');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
