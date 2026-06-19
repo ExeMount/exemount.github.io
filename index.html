@@ -7,7 +7,7 @@
   <!-- Font Awesome (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ----- GLOBAL VARIABLES ----- */
+    /* ----- GLOBAL VARIABLES (inspired by sea-empire) ----- */
     :root {
       --primary: #1a5276;
       --secondary: #2980b9;
@@ -17,12 +17,12 @@
       --success: #27ae60;
       --danger: #e74c3c;
       --warning: #f39c12;
-      --bg-body: #1a1a2e;
-      --bg-card: #2c4a6a;
-      --bg-code: #1a2a3a;
+      --bg-body: #1a1a2e;        /* KEEP THIS - navy blue background */
+      --bg-card: #2c4a6a;        /* CHANGE THIS - lighter blue for sections */
+      --bg-code: #1a2a3a;        /* CHANGE THIS - code blocks slightly lighter */
       --text-light: #ecf0f1;
-      --text-muted: #d5e4f0;
-      --border-color: #3a6a8a;
+      --text-muted: #d5e4f0;     /* CHANGE THIS - lighter text for better contrast */
+      --border-color: #3a6a8a;   /* CHANGE THIS - lighter border */
     }
 
     * {
@@ -37,8 +37,6 @@
       color: var(--text-light);
       line-height: 1.6;
       padding: 20px;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     .container {
@@ -57,7 +55,7 @@
       overflow: hidden;
     }
     .header::before {
-      content: '\f0c2';
+      content: '\f0c2'; /* font-awesome compass */
       font-family: 'Font Awesome 6 Free';
       font-weight: 900;
       position: absolute;
@@ -94,7 +92,7 @@
       margin-right: 6px;
     }
 
-    /* ----- STICKY NAV ----- */
+    /* ----- STICKY NAV (like sea-empire) ----- */
     .nav {
       display: flex;
       flex-wrap: wrap;
@@ -122,7 +120,6 @@
       font-weight: 500;
       letter-spacing: 0.3px;
       background: transparent;
-      cursor: pointer;
     }
     .nav a:hover {
       background: var(--secondary);
@@ -183,7 +180,7 @@
       border-bottom-color: white;
     }
 
-    /* ----- CARD GRID ----- */
+    /* ----- CARD GRID (for projects, memberships) ----- */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -230,16 +227,8 @@
       color: #aacfec;
       margin: 6px 4px 0 0;
     }
-    .card .tag a {
-      color: #aacfec;
-      text-decoration: none;
-      border-bottom: none;
-    }
-    .card .tag a:hover {
-      color: white;
-    }
 
-    /* ----- TIMELINE ----- */
+    /* ----- LISTS (education / positions) ----- */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -260,7 +249,7 @@
       padding-left: 18px;
     }
     .timeline-item::before {
-      content: '\f111';
+      content: '\f111'; /* font-awesome circle */
       font-family: 'Font Awesome 6 Free';
       font-weight: 900;
       position: absolute;
@@ -282,7 +271,7 @@
       color: #cbdae7;
     }
 
-    /* ----- CODE BLOCKS ----- */
+    /* ----- CODE / COMMAND blocks (debug style) ----- */
     .code-block {
       background: var(--bg-code);
       padding: 16px 20px;
@@ -303,7 +292,7 @@
       color: #7f8c8d;
     }
 
-    /* ----- TOGGLE BUTTON ----- */
+    /* ----- BUTTON (toggle) ----- */
     .toggle-btn {
       background: var(--secondary);
       color: white;
@@ -329,7 +318,7 @@
       margin-top: 16px;
     }
 
-    /* ----- SOCIAL LINKS ----- */
+    /* ----- SOCIAL BADGES ----- */
     .social-links {
       display: flex;
       flex-wrap: wrap;
@@ -374,265 +363,6 @@
       color: #b0c9dd;
     }
 
-    /* ============================================
-       MOBILE RESPONSIVE STYLES
-       ============================================ */
-
-    /* Tablets and small laptops */
-    @media (max-width: 1024px) {
-      .card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-    }
-
-    /* Mobile phones */
-    @media (max-width: 768px) {
-      body {
-        padding: 15px;
-      }
-      
-      .header h1 {
-        font-size: 32px;
-      }
-      .header .subtitle {
-        font-size: 17px;
-      }
-      .header .badge {
-        font-size: 12px;
-        padding: 6px 14px;
-        margin: 4px;
-      }
-      .header::before {
-        font-size: 120px;
-        right: -20px;
-        top: -20px;
-      }
-      
-      .section {
-        padding: 20px 18px;
-        border-left-width: 4px;
-      }
-      .section h2 {
-        font-size: 24px;
-      }
-      .section h2 i {
-        font-size: 24px;
-        width: 32px;
-      }
-      .section p, .section li {
-        font-size: 15px;
-      }
-      
-      .nav {
-        border-radius: 30px;
-        gap: 5px;
-        padding: 10px 12px;
-        top: 8px;
-        flex-wrap: wrap;
-      }
-      .nav a {
-        font-size: 12px;
-        padding: 6px 12px;
-        letter-spacing: 0;
-      }
-      .nav a i {
-        margin-right: 4px;
-      }
-      
-      .card-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-      .card {
-        padding: 16px;
-      }
-      .card h4 {
-        font-size: 17px;
-      }
-      .card p {
-        font-size: 14px;
-      }
-      
-      .timeline {
-        padding-left: 20px;
-      }
-      .timeline-item {
-        padding-left: 14px;
-        margin-bottom: 18px;
-      }
-      .timeline-item::before {
-        left: -18px;
-        font-size: 12px;
-      }
-      .timeline-item h4 {
-        font-size: 16px;
-      }
-      .timeline-item .date {
-        font-size: 13px;
-      }
-      .timeline-item p {
-        font-size: 14px;
-      }
-      
-      .social-links {
-        gap: 10px;
-        justify-content: center;
-      }
-      .social-links a {
-        font-size: 13px;
-        padding: 6px 14px;
-      }
-      
-      footer .tech-tag {
-        font-size: 10px;
-        padding: 3px 10px;
-        margin: 3px;
-      }
-      
-      .toggle-btn {
-        font-size: 13px;
-        padding: 8px 18px;
-      }
-    }
-
-    /* Small phones */
-    @media (max-width: 480px) {
-      body {
-        padding: 10px;
-      }
-      
-      .header {
-        padding: 25px 15px;
-        border-radius: 12px;
-      }
-      .header h1 {
-        font-size: 24px;
-      }
-      .header .subtitle {
-        font-size: 14px;
-      }
-      .header .badge {
-        font-size: 10px;
-        padding: 4px 10px;
-        margin: 3px;
-      }
-      .header::before {
-        font-size: 80px;
-        right: -15px;
-        top: -10px;
-      }
-      
-      .section {
-        padding: 16px 14px;
-        border-radius: 14px;
-        border-left-width: 3px;
-      }
-      .section h2 {
-        font-size: 20px;
-        gap: 8px;
-      }
-      .section h2 i {
-        font-size: 20px;
-        width: 28px;
-      }
-      .section p, .section li {
-        font-size: 14px;
-      }
-      
-      .nav {
-        border-radius: 20px;
-        gap: 4px;
-        padding: 8px 6px;
-        top: 4px;
-        margin-bottom: 20px;
-      }
-      .nav a {
-        font-size: 10px;
-        padding: 4px 8px;
-      }
-      .nav a i {
-        margin-right: 2px;
-        font-size: 10px;
-      }
-      
-      .card {
-        padding: 14px;
-      }
-      .card h4 {
-        font-size: 15px;
-      }
-      .card .meta {
-        font-size: 12px;
-      }
-      .card p {
-        font-size: 13px;
-      }
-      .card .tag {
-        font-size: 10px;
-        padding: 2px 10px;
-      }
-      
-      .timeline {
-        padding-left: 16px;
-      }
-      .timeline::before {
-        left: 6px;
-      }
-      .timeline-item {
-        padding-left: 12px;
-        margin-bottom: 14px;
-      }
-      .timeline-item::before {
-        left: -14px;
-        font-size: 10px;
-      }
-      .timeline-item h4 {
-        font-size: 14px;
-      }
-      .timeline-item .date {
-        font-size: 12px;
-      }
-      .timeline-item p {
-        font-size: 13px;
-      }
-      
-      .social-links {
-        gap: 8px;
-      }
-      .social-links a {
-        font-size: 11px;
-        padding: 5px 10px;
-        gap: 5px;
-      }
-      
-      footer {
-        padding: 20px 0 12px;
-      }
-      footer p {
-        font-size: 12px;
-      }
-      footer .tech-tag {
-        font-size: 9px;
-        padding: 2px 8px;
-        margin: 2px;
-      }
-      
-      .toggle-btn {
-        font-size: 11px;
-        padding: 6px 14px;
-      }
-      .code-block {
-        font-size: 12px;
-        padding: 12px 14px;
-      }
-      
-      .badge {
-        font-size: 10px !important;
-        padding: 4px 10px !important;
-        margin: 3px !important;
-      }
-    }
-
     /* ----- PRINT STYLES (PDF friendly) ----- */
     @media print {
       body { background: white; padding: 8px; color: #1a1a2e; }
@@ -648,7 +378,12 @@
       .header .badge { background: rgba(255,255,255,0.3); }
       .toggle-content { display: block !important; }
       .toggle-btn { display: none; }
-      .section { break-inside: avoid; }
+    }
+    @media (max-width: 640px) {
+      .header h1 { font-size: 32px; }
+      .section { padding: 18px; }
+      .nav { border-radius: 30px; gap: 4px; padding: 10px 8px; }
+      .nav a { font-size: 12px; padding: 6px 12px; }
     }
   </style>
 </head>
@@ -660,10 +395,10 @@
     <h1><i class="fas fa-compass" style="margin-right: 12px;"></i> Dr Suleyman Duman</h1>
     <p class="subtitle">CFD Specialist · Naval Architect & Marine Engineer</p>
     <div>
-      <span class="badge"><i class="fas fa-university"></i> Ph.D. · ITU</span>
+      <span class="badge"><i class="fas fa-university"></i> Ph.D. ・ Istanbul Technical University</span>
       <span class="badge"><i class="fas fa-water"></i> CFD</span>
-      <span class="badge"><i class="fas fa-chess-queen"></i> Parametric CAD</span>
-      <span class="badge"><i class="fas fa-code"></i> Python · C++</span>
+      <span class="badge"><i class="fas fa-chess-queen"></i> Parametric CAD Optimisation</span>
+      <span class="badge"><i class="fas fa-code"></i> Matlab · Python · C++</span>
     </div>
   </header>
 
@@ -671,16 +406,18 @@
   <nav class="nav" id="topNav">
     <a href="#about"><i class="fas fa-user"></i> About</a>
     <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-    <a href="#positions"><i class="fas fa-briefcase"></i> Positions</a>
     <a href="#memberships"><i class="fas fa-users"></i> Memberships</a>
     <a href="#projects"><i class="fas fa-flask"></i> Projects</a>
+    <a href="#positions"><i class="fas fa-briefcase"></i> Positions</a>
     <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
   </nav>
 
   <!-- ABOUT -->
   <section class="section" id="about">
     <h2><i class="fas fa-address-card"></i> About Me</h2>
-    <p style="font-size: 17px;">
+
+    <p style="font-size: 17px; max-width: 800px;">
+      
       Dynamic researcher with a strong academic background 
       in Naval Architecture and Marine Engineering <strong>(PhD, MSc, BSc)</strong> 
       and extensive international experience in <strong>high-fidelity CFD and multiphysics modelling</strong>. 
@@ -689,9 +426,7 @@
       I was awarded the prestigious <strong>Global Talent Visa</strong> 
       by the <strong>Royal Academy of Engineering</strong> in recognition of my contributions 
       to the field of fluid mechanics.
-    </p>
-    <br>
-    <p style="font-size: 17px;">
+      <br><br>
       I currently serve as <strong>Chief Technology Officer</strong> at Econavis Solutions, 
       an R&D company developing sustainable propulsion and zero-emission marine technologies. 
       Alongside this role, my academic background includes appointments as 
@@ -700,173 +435,177 @@
       Through projects such as the EU Horizon 2020 TrAM initiative and 
       the Innovate UK Eco Boss Cap programme, I have contributed to the design of 
       digital-twin frameworks and advanced propulsion concepts supporting the transition to net-zero transport.
+      <br><br>
     </p>
+    <!--
+    <div>
+      <span class="badge"><i class="fas fa-wind"></i> Star-CCM+ (Siemens) &nbsp;</span>
+      <span class="badge"><i class="fas fa-water"></i> OpenFOAM &nbsp;</span>
+      <span class="badge"><i class="fas fa-chess-queen"></i> Rhinoceros3D &nbsp;</span>
+      <span class="badge"><i class="fas fa-code"></i> Matlab &nbsp;</span>
+    </div>
+  -->
     <div style="margin-top: 18px;">
-      <span class="badge" style="background: #1f4b6e;"><i class="fas fa-map-pin"></i> Oxford, UK</span>
-      <span class="badge" style="background: #1f4b6e;"><i class="fas fa-chart-line"></i> 10+ years R&D</span>
+      <span class="badge" style="background: #1f4b6e;"><i class="fas fa-map-pin"></i> Oxford, UK &nbsp;</span>
+      <span class="badge" style="background: #1f4b6e;"><i class="fas fa-chart-line"></i> 10+ years R&D &nbsp;</span>
     </div>
   </section>
 
-  <!-- EDUCATION -->
+  <!-- EDUCATION (timeline) -->
   <section class="section" id="education">
     <h2><i class="fas fa-graduation-cap"></i> Education</h2>
     <div class="timeline">
       <div class="timeline-item">
         <h4>Ph.D. in Naval Architecture and Marine Engineering</h4>
         <div class="date"><i class="far fa-calendar-alt"></i> 2016 – 2022 · Istanbul Technical University</div>
-        <p>Thesis: <em>"Numerical investigation of maneuvering performance of monohull and multihull marine vessels"</em></p>
+        <p>Thesis: <em>“Numerical investigation of maneuvering performance of monohull and multihull marine vessels”</em> </p>
       </div>
       <div class="timeline-item">
-        <h4>M.Sc. in Naval Architecture and Marine Engineering</h4>
+        <h4>M.Sc. in Naval Architecture and Marine Engineerings</h4>
         <div class="date"><i class="far fa-calendar-alt"></i> 2014 – 2016 · Istanbul Technical University</div>
-        <p>Thesis: <em>"Investigation of the turning performance of a surface combatant with URANS"</em></p>
+        <p>Thesis: <em>“Investigation of the turning performance of a surface combatant with URANS”</em></p>
       </div>
       <div class="timeline-item">
         <h4>B.Sc. in Naval Architecture and Marine Engineering</h4>
         <div class="date"><i class="far fa-calendar-alt"></i> 2009 – 2014 · Yildiz Technical University</div>
-        <p>First-class honours; dissertation on <em>"45m Displacement Type Motor Yacht Design"</em>.</p>
+        <p>First-class honours; dissertation on <em>“45m Displacement Type Motor Yacht Design”</em>.</p>
       </div>
     </div>
   </section>
 
-  <!-- POSITIONS -->
+  <!-- POSITIONS (timeline) -->
   <section class="section" id="positions">
     <h2><i class="fas fa-briefcase"></i> Academic & Professional Positions</h2>
     <div class="timeline">
       <div class="timeline-item">
         <h4>Chief Technology Officer</h4>
-        <div class="date"><i class="far fa-calendar-alt"></i> August 2025 – Present · Econavis Solutions, Oxford, UK</div>
-        <p>Leading R&D phase of the Eco Boss Cap project.</p>
+        <div class="date"><i class="far fa-calendar-alt"></i> August 2025 – Present · Econavis Solutions <em>(Oxford, United Kingdom)</em></div>
+        <p> Leading R&D phase of the Eco Boss Cap project. </p>
       </div>
       <div class="timeline-item">
         <h4>Senior Maritime CFD Engineer</h4>
-        <div class="date"><i class="far fa-calendar-alt"></i> February 2025 – July 2025 · Econavis Solutions, Oxford, UK</div>
-        <p>Leading the CFD simulations for the Eco Boss Cap project.</p>
+        <div class="date"><i class="far fa-calendar-alt"></i> February 2025 – July 2025 · Econavis Solutions <em>(Oxford, United Kingdom)</em></div>
+        <p> Leading the CFD simulations for the Eco Boss Cap project. </p>
       </div>
       <div class="timeline-item">
         <h4>CFD Specialist Naval Architect</h4>
-        <div class="date"><i class="far fa-calendar-alt"></i> December 2022 – 2024 · Blue Ocean Seismic Services, Farnborough, UK</div>
-        <p>Leading hydrodynamic performance evaluation and form optimisation of an AUV submersible.</p>
+        <div class="date"><i class="far fa-calendar-alt"></i> December 2022 – 2024 · Blue Ocean Seismic Services <em>(Farnborough, United Kingdom)</em></div>
+        <p>Leading the hydrodynamic performance evaluation and form optimisation of an AUV submersible. </p>
       </div>
       <div class="timeline-item">
         <h4>Research Associate</h4>
-        <div class="date"><i class="far fa-calendar-alt"></i> March 2022 – November 2022 · University of Strathclyde, Glasgow, UK</div>
+        <div class="date"><i class="far fa-calendar-alt"></i> March 2022 – November 2022 · University of Strathclyde (Department of Naval Arch., Ocean and Marine Eng.) <em>(Glasgow, United Kingdom)</em></div>
         <p>Evaluating hydrodynamic performance of a fully electric driven catamaran ferry.</p>
       </div>
       <div class="timeline-item">
         <h4>Visiting Lecturer</h4>
-        <div class="date"><i class="far fa-calendar-alt"></i> 2021 – 2022 · Yildiz Technical University, Istanbul, Turkiye</div>
-        <p>Contributing to departmental teaching and research activities.</p>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2021 – 2022 · Yildiz Technical University <em>(Istanbul, Turkiye)</em></div>
+        <p> Contributing to the departmental teaching and research activities. </p>
       </div>
       <div class="timeline-item">
         <h4>Visiting Research Assistant</h4>
-        <div class="date"><i class="far fa-calendar-alt"></i> 2015 – 2021 · Yildiz Technical University, Istanbul, Turkiye</div>
-        <p>Contributing to departmental teaching and research activities.</p>
+        <div class="date"><i class="far fa-calendar-alt"></i> 2015 – 2021 · Yildiz Technical University <em>(Istanbul, Turkiye)</em> </div>
+        <p> Contributing to the departmental teaching and research activities. </p>
       </div>
     </div>
   </section>
 
-  <!-- MEMBERSHIPS -->
+  <!-- MEMBERSHIPS (card grid) -->
   <section class="section" id="memberships">
     <h2><i class="fas fa-users"></i> Memberships & Affiliations</h2>
     <div class="card-grid">
       <div class="card">
-        <h4><i class="fas fa-ship"></i> Royal Institution of Naval Architects</h4>
+        <h4><i class="fas fa-ship"></i> Royal Institution of Naval Architects </h4>
         <p class="meta">Member (2016–present)</p>
+        <p> <em></em></p>
       </div>
       <div class="card">
-        <h4><i class="fas fa-anchor"></i> Turkish Chamber of Naval Architects</h4>
+        <h4><i class="fas fa-anchor"></i> Turkish Chamber of Naval Architects and Marine Engineers</h4>
         <p class="meta">Member (2014–present)</p>
+        <p> </p>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (featured) -->
   <section class="section" id="projects">
     <h2><i class="fas fa-flask"></i> Featured Projects</h2>
     <div class="card-grid">
       <div class="card">
         <h4><i class="fas fa-ship"></i> Eco Boss Cap</h4>
         <p class="meta">CFD · Parametric CAD Optimisation</p>
-        <p>Innovate UK funded project for marine propulsion systems design.</p>
-        <div><span class="tag"><i class="fas fa-globe"></i> <a href="https://econavis.co.uk/" target="_blank">econavis.co.uk</a></span></div>
+        <p>Innovate UK – Eco Boss Cap Design for Marine Propulsion Systems” project funded by the ICURe programme, Innovate UK</p>
+        <div><span class="tag"><i class="fab fa-web"></i> https://econavis.co.uk/</span></div>
       </div>
       <div class="card">
-        <h4><i class="fas fa-robot"></i> TrAM Project</h4>
-        <p class="meta">Horizon 2020 · Marine Hydrodynamics</p>
-        <p>Transport Advance and Modular Ship Design for zero-emission vessels.</p>
-        <div><span class="tag"><i class="fas fa-globe"></i> <a href="https://tramproject.eu/" target="_blank">tramproject.eu</a></span></div>
+        <h4><i class="fas fa-robot"></i> Transport Advance and Modular Ship Design (TrAM)</h4>
+        <p class="meta">Marine Hydrodynamic · Parametric Form Optimisation · Shallow Water Effects</p>
+        <p>Horizon 2020 – Transport Advance and Modular Ship Design (TrAM)” project funded by the European Union’s Horizon 2020 Research and Innovation Programme under grant agreement No. 769303</p>
+        <div><span class="tag"><i class="fas fa-brain"></i> https://tramproject.eu/</span></div>
       </div>
       <div class="card">
-        <h4><i class="fas fa-chart-simple"></i> Manoeuvring Simulator</h4>
-        <p class="meta">6-DoF · Mathematical Modelling</p>
-        <p>Development of a 6-DoF manoeuvring mathematical model for surface ships.</p>
+        <h4><i class="fas fa-chart-simple"></i> Manoeuvring Motion Simulator Design</h4>
+        <p class="meta">Bridge Simulator · Mathematical Modelling · 6-DoF Motion Equations</p>
+        <p>Development of a 6-DoF Manoeuvring Mathematical Model for a Multipurpose Surface Ship</p>
+        <div><span class="tag"><i class="fas fa-chart-pie"></i> </span></div>
       </div>
       <div class="card">
-        <h4><i class="fas fa-scroll"></i> Multihull Manoeuvring</h4>
-        <p class="meta">Catamaran · Trimaran</p>
-        <p>Numerical investigation of manoeuvring characteristics of multihull ships.</p>
+        <h4><i class="fas fa-scroll"></i> Numerical Investigation of Manoeuvring Characteristics of Multihull Ships</h4>
+        <p class="meta">Catamaran · Trimaran · Manoeuvring Performance Predictions</p>
+        <p>Scientific Project, Istanbul Technical University</p>
+        <div><span class="tag"><i class="fas fa-book-open"></i> </span></div>
       </div>
       <div class="card">
-        <h4><i class="fas fa-scroll"></i> Corvette Analysis</h4>
-        <p class="meta">Hydrodynamic · Structural · Shock</p>
-        <p>Noise, hydrodynamic, structural and shock analysis for 92-meter corvette.</p>
+        <h4><i class="fas fa-scroll"></i> Noise, Hydrodynamic, Structural and Shock Analysis for 92-meter Corvette</h4>
+        <p class="meta">Manoeuvring Performance Predictions · Steering and Propulsion System Design for Surface Combatants</p>
+        <p>Commercial Project, Dearsan Shipyard</p>
+        <div><span class="tag"><i class="fas fa-book-open"></i> </span></div>
       </div>
     </div>
+    <!-- additional toggle (like debug console) -->
     <button class="toggle-btn" onclick="toggleSection('project-details')"><i class="fas fa-book"></i> Show more project notes</button>
     <div id="project-details" class="toggle-content">
       <div class="code-block">
         <i class="fas fa-terminal"></i> <span class="comment"># Please get in touch for further details about the projects.</span><br>
         Email: duman.suleyman(at)outlook.com
       </div>
+      <p style="margin-top: 10px;">All projects are open-source or available upon request. <i class="fas fa-envelope" style="color: #f1c40f;"></i> alex.rivera@pm.me</p>
     </div>
   </section>
 
-
-
-  <!-- CONTACT -->
+  <!-- CONTACT / LINKS -->
   <section class="section" id="contact">
     <h2><i class="fas fa-paper-plane"></i> Connect</h2>
-    <p style="margin-bottom: 14px;">I'm always open to collaboration, research discussions, or just a chat about fluid dynamics.</p>
+    <p style="margin-bottom: 14px;">I’m always open to collaboration, research discussions, or just a chat about fluid dynamics.</p>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/s-duman/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=Nuz8pmMAAAAJ&hl=en&authuser=2" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-scholar"></i> Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Suleyman-Duman" target="_blank" rel="noopener noreferrer"><i class="fab fa-researchgate"></i> ResearchGate</a>
-      <a href="https://orcid.org/0000-0001-6502-5960" target="_blank" rel="noopener noreferrer"><i class="fab fa-orcid"></i> ORCID</a>
+      <a href="https://www.linkedin.com/in/s-duman/"  target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=Nuz8pmMAAAAJ&hl=en&authuser=2"  target="_blank"><i class="fab fa-google-scholar"></i> Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Suleyman-Duman" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a>
+      <a href="https://orcid.org/0000-0001-6502-5960"  target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
     </div>
     <div style="margin-top: 22px; background: #1a2c3f; padding: 14px 20px; border-radius: 16px; border-left: 4px solid #f1c40f;">
-      <p style="color: #d5e4f0; font-size: 15px;">
-        <i class="fas fa-envelope" style="color: #f1c40f; margin-right: 10px;"></i> 
-        <strong>Email:</strong> duman.suleyman<em>(at)</em>outlook.com
-      </p>
+      <p style="color: #d5e4f0; font-size: 15px;"><i class="fas fa-download" style="color: #f1c40f; margin-right: 10px;"></i> <strong>Please contact me:</strong> duman.suleyman<em>(at)</em>outlook.com</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <p><i class="fas fa-compass"></i> Dr Suleyman Duman · 2026</p>
-    <p style="font-size: 13px; color: #6c859e;">
-      <i class="fas fa-anchor" style="color: #d5e4f0;"></i> 
-      Naval Architect & Marine Engineer <em>PhD · MSc · BSc</em>
-    </p>
+    <p style="font-size: 13px; color: #6c859e;"><i class="fas fa-anchor" style="color: #d5e4f0;"></i> Naval Architect&Marine Engineer  <em> PhD · MSc · BSc </em></p>
     <div>
       <span class="tech-tag">CFD</span>
       <span class="tech-tag">Marine Hydrodynamics</span>
-      <span class="tech-tag">Parametric CAD</span>
+      <span class="tech-tag">Parametric CAD Modelling</span>
       <span class="tech-tag">R&D</span>
       <span class="tech-tag">AUV Design</span>
     </div>
-    <p style="margin-top: 12px; font-size: 13px;">
-      <a href="#topNav" style="color: #5f8db5; text-decoration: none;">
-        <i class="fas fa-arrow-up"></i> Back to top
-      </a>
-    </p>
+    <p style="margin-top: 12px; font-size: 13px;"><a href="#" style="color: #5f8db5; text-decoration: none;"><i class="fas fa-arrow-up"></i> Back to top</a></p>
   </footer>
 
-</div>
+</div> <!-- /container -->
 
 <script>
-  // Toggle function
+  // toggle function (identical to sea-empire)
   function toggleSection(id) {
     const el = document.getElementById(id);
     const btn = event.target.closest('.toggle-btn');
@@ -882,7 +621,7 @@
     }
   }
 
-  // Smooth scroll for nav
+  // smooth scroll for nav
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -892,7 +631,7 @@
     });
   });
 
-  // Auto-expand first toggle
+  // auto-expand first toggle (optional)
   document.addEventListener('DOMContentLoaded', function() {
     const firstToggle = document.querySelector('.toggle-content');
     if (firstToggle) {
